@@ -13,8 +13,8 @@ Users of this page should be able to:
 
 ### Links
 
-- [Solution]()
-- [Live Site]()
+- [Solution](https://www.frontendmentor.io/solutions/responsive-job-listing-page-using-react-KYO5C3gjn-)
+- [Live Site](https://capable-donut-de9c94.netlify.app)
 
 ### Built with
 
