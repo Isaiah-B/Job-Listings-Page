@@ -1,0 +1,94 @@
+/****************************/
+/* BELOW 1152px */
+/****************************/
+@media (max-width: 72em) {
+  .container {
+    width: 96%;
+  }
+}
+
+/****************************/
+/* BELOW 1008px */
+/****************************/
+@media (max-width: 63em) {
+  .info-small {
+    font-size: 1.6rem;
+  }
+}
+
+/****************************/
+/* BELOW 784px */
+/****************************/
+@media (max-width: 49em) {
+  .listings {
+    gap: 4rem;
+  }
+
+  .listing-logo {
+    position: absolute;
+    top: -2.4rem;
+    left: 2.4rem;
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+/****************************/
+/* BELOW 656px */
+/****************************/
+@media (max-width: 41em) {
+  .header {
+    background-image: url(../../public/images/bg-header-mobile.svg);
+  }
+
+  .container {
+    width: 87%;
+  }
+
+  .listings {
+    align-items: center;
+  }
+
+  .listing {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  } 
+
+  .listing-left {
+    width: 100%;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid hsl(180, 8%, 75%);
+  }
+
+  .listing-position {
+    font-size: 1.8rem;
+  }
+}
+
+/****************************/
+/* BELOW 432px */
+/****************************/
+@media (max-width: 27em) {
+
+  .filter-container {
+    padding: 2.4rem;
+  }
+
+  .listing {
+    padding: 3.4rem 2.4rem;
+  }
+
+  .listing-position,
+  .listing-company {
+    font-size: 1.5rem;
+  }
+
+  .info-top {
+    gap: 2rem;
+  }
+
+  .info-bottom {
+    gap: 0.7rem;
+  }
+}

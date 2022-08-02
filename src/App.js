@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import FilterContainer from "./components/FilterContainer";
+import Listings from "./components/Listings";
 
-function App() {
+const App = () => {
+  const [filters, setFilters] = useState([]);
+
+  const addFilter = (value) => {
+    if (!filters.includes(value)) {
+      setFilters(filters.concat(value));
+    }
+  }
+
+  const removeFilter = (filterName) => {
+    setFilters(filters.filter(item => item !== filterName));
+  }
+
+  const clearFilters = () => {
+    setFilters([]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <header className="header"></header>
+    <main>
+      <div className="container">
+        <FilterContainer filters={filters} isOpen={filters.length > 0} removeFilter={removeFilter} clearFilters={clearFilters}/>
+        <Listings filters={filters} addFilter={addFilter}/>
+      </div>
+      <div className="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel='noreferrer'>Frontend Mentor</a>. 
+        Coded by <a href="https://www.frontendmentor.io/profile/Isaiah-B">Isaiah</a>.
+      </div>
+    </main>
+    </>
+  )
 }
 
 export default App;
