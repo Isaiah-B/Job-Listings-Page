@@ -3,7 +3,6 @@ import Listing from './Listing';
 
 const Listings = ({ filters, addFilter }) => {
   const [listings, setListings] = useState([]);
-  const [visible, setVisible] = useState([]);
 
   const getData = async () => {
     const res = await fetch('data.json');
@@ -12,28 +11,21 @@ const Listings = ({ filters, addFilter }) => {
 
   useEffect(() => {
     getData();
+  }, []);
 
-    // Give each listing an array of their filterable properties  
-    listings.forEach(listing => {
-      listing.filterList = [listing.role, listing.level, ...listing.languages, ...listing.tools];
-    })
+  // Give each listing an array of its filterable properties  
+  listings.forEach(listing => {
+    listing.filterList = [listing.role, listing.level, ...listing.languages, ...listing.tools];
+  });
 
-    // Populate visible with listings that contain only selected filters
-    setVisible(listings.filter(listing => filters.every(el => listing.filterList.includes(el))));
-  }, [filters]);
+  // Populate visible with listings that contain only selected filters
+  const visible = listings.filter(listing => filters.every(el => listing.filterList.includes(el)));
 
-  // Display filtered listings if filters are applied
-  // Otherwise, display all listings 
-  let listToUse = listings;
-
-  if (filters.length > 0) {
-    listToUse = visible;
-  }
 
   return (
     <div className="listings">
       {
-        listToUse.map(item => {
+        visible.map(item => {
           return <Listing 
             key={item.id}
             logo={item.logo}
