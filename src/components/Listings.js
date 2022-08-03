@@ -1,18 +1,7 @@
-import { useState, useEffect } from 'react';
 import Listing from './Listing';
 
-const Listings = ({ filters, addFilter }) => {
-  const [listings, setListings] = useState([]);
-
-  const getData = async () => {
-    const res = await fetch('data.json');
-    setListings(await res.json());
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
+const Listings = ({ listings, filters, addFilter }) => {
+  
   // Give each listing an array of its filterable properties  
   listings.forEach(listing => {
     listing.filterList = [listing.role, listing.level, ...listing.languages, ...listing.tools];
